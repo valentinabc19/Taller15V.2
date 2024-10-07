@@ -2,9 +2,10 @@ const mysql = require('mysql2/promise');
 
 
 const connection = mysql.createPool({
-    host: 'db',
+    host: '192.168.100.2',
     user: 'root',
     password: 'root',
+    port: '32000',
     database: 'almacenABC'
     // Cambiar el host por la IP del server y añadir el puerto 32000 si no funciona la conexión
 });

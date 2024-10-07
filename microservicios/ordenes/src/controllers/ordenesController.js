@@ -59,7 +59,7 @@ router.post('/ordenes', async (req, res) => {
 async function calcularTotal(items) {
     let ordenTotal = 0;
     for (const producto of items) {
-        const response = await axios.get(`http://usuario:3002/productos/${producto.id}`);
+        const response = await axios.get(`http://producto:3002/productos/${producto.id}`);
         ordenTotal += response.data.precio * producto.cantidad;
     }
     return ordenTotal;
@@ -70,7 +70,7 @@ async function calcularTotal(items) {
 async function verificarDisponibilidad(items) {
     let disponibilidad = true;
     for (const producto of items) {
-        const response = await axios.get(`http://usuario:3002/productos/${producto.id}`);
+        const response = await axios.get(`http://producto:3002/productos/${producto.id}`);
         if (response.data.inventario < producto.cantidad) {
             disponibilidad = false;
             break;
