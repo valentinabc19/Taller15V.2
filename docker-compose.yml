@@ -1,0 +1,38 @@
+services:
+  db:
+    image: mysql:5.7
+    ports: 
+      - "32000:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=almacenABC
+    volumes:
+      - ./db:/docker-entrypoint-initdb.db
+  usuario:
+    build: ./microservicios/usuario
+    ports:
+      - "3001:3001"
+    links:
+      - db
+  producto:
+    build: ./microservicios/producto
+    ports:
+      - "3002:3002"
+    links:
+      - db
+  ordenes:
+    build: ./microservicios/ordenes
+    ports:
+      - "3003:3003"
+    links:
+      - db
+      - producto
+      - usuario
+  web:
+    build: ./web
+    ports:
+      - "9080:80"
+    links:
+      - usuario
+      - producto
+      - ordenes
