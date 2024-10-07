@@ -4,10 +4,10 @@ services:
     ports: 
       - "32000:3306"
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=almacenABC
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: almacenABC
     volumes:
-      - ./db:/docker-entrypoint-initdb.db
+      - ./db:/docker-entrypoint-initdb.d
   usuario:
     build: ./microservicios/usuario
     ports:

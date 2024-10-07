@@ -42,7 +42,7 @@ router.post('/ordenes', async (req, res) => {
     }
     
     // Creamos la orden
-    const response = await axios.get(`http://localhost:3001/usuarios/${usuario}`);
+    const response = await axios.get(`http://usuario:3001/usuarios/${usuario}`);
     const name=response.data.nombre;
     const email=response.data.email;
     orden = { "nombreCliente": name, "emailCliente": email, "totalCuenta": totalCuenta }
@@ -59,7 +59,7 @@ router.post('/ordenes', async (req, res) => {
 async function calcularTotal(items) {
     let ordenTotal = 0;
     for (const producto of items) {
-        const response = await axios.get(`http://localhost:3002/productos/${producto.id}`);
+        const response = await axios.get(`http://usuario:3002/productos/${producto.id}`);
         ordenTotal += response.data.precio * producto.cantidad;
     }
     return ordenTotal;
@@ -70,7 +70,7 @@ async function calcularTotal(items) {
 async function verificarDisponibilidad(items) {
     let disponibilidad = true;
     for (const producto of items) {
-        const response = await axios.get(`http://localhost:3002/productos/${producto.id}`);
+        const response = await axios.get(`http://usuario:3002/productos/${producto.id}`);
         if (response.data.inventario < producto.cantidad) {
             disponibilidad = false;
             break;
@@ -83,12 +83,12 @@ async function verificarDisponibilidad(items) {
 // Función para disminuir la cantidad de unidades de los productos
 async function actualizarInventario(items) {
     for (const producto of items) {
-        const response = await axios.get(`http://localhost:3002/productos/${producto.id}`);
+        const response = await axios.get(`http://producto:3002/productos/${producto.id}`);
         const nombre = response.data.nombre;
         const precio = response.data.precio;
         const inventarioActual = response.data.inventario;
         const inv=inventarioActual - producto.cantidad;
-        await axios.put(`http://localhost:3002/productos/${producto.id}`, {
+        await axios.put(`http://producto:3002/productos/${producto.id}`, {
             nombre: nombre, 
             precio: precio,
             inventario: inv

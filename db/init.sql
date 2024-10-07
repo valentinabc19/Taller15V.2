@@ -27,6 +27,6 @@ CREATE TABLE ordenes (
     fechahora DATETIME DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
 );
-INSERT INTO usuario (nombre, email, usuario, contrasena) VALUES ('Administrador', 'admin@mail.com', 'admin', '1234');
-INSERT INTO usuario (nombre, email, usuario, contrasena) VALUES ('Usuario1', 'user1@mail.com', 'user1', '12345');
+INSERT INTO usuarios (nombre, email, usuario, contrasena) VALUES ('Administrador', 'admin@mail.com', 'admin', '1234');
+INSERT INTO usuarios (nombre, email, usuario, contrasena) VALUES ('Usuario1', 'user1@mail.com', 'user1', '12345');
 INSERT INTO productos (nombre, precio, inventario) VALUES ('producto1', '20000', '25');
