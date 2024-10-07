@@ -6,6 +6,7 @@ const connection = mysql.createPool({
     user: 'root',
     password: 'root',
     database: 'almacenABC'
+    // Cambiar el host por la IP del server y añadir el puerto 32000 si no funciona la conexión
 });
 
 

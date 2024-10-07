@@ -71,7 +71,7 @@
             $id=$dec->id;
             $nombreCliente=$dec->nombreCliente;
             $emailCliente=$dec->emailCliente;
-            $totalcuenta=$dec->totalcuenta;
+            $totalCuenta=$dec->totalCuenta;
             $fechahora=$dec->fechahora;
      ?>
     
@@ -79,7 +79,7 @@
         <td><?php echo $id; ?></td>
         <td><?php echo $nombreCliente; ?></td>
         <td><?php echo $emailCliente; ?></td>
-        <td><?php echo $totalcuenta; ?></td>
+        <td><?php echo $totalCuenta; ?></td>
         <td><?php echo $fechahora; ?></td>
         </tr>
      <?php 
